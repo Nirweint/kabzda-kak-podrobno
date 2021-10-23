@@ -3,6 +3,7 @@ import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/onOff/OnOff";
+import { UncontrolledAccordion } from './components/UncontrolledAccordion/UncontrolledAccordion';
 
 // function declaration
 function App() {
@@ -11,17 +12,21 @@ function App() {
     // return JSX!!!
     return (
         <div>
-            <PageTitle title={"This is APP component"}/>
+            {/* <PageTitle title={"This is APP component"}/>
             Article 1
             <Rating value={3}/>
             <Accordion titleValue={"Menu"} collapsed={true}/>
             Article 2
             <Rating value={4}/>
-            <Accordion titleValue={"Users"} collapsed={false}/>
+            <Accordion titleValue={"Users"} collapsed={false}/> */}
 
             <OnOff />
             <OnOff />
             <OnOff />
+
+            <UncontrolledAccordion titleValue={"Menu"}/>
+            <UncontrolledAccordion titleValue={"Users"}/>
+
         </div>
     );
 }
