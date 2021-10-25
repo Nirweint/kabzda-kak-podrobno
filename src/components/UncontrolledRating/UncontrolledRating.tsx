@@ -36,11 +36,11 @@ type StarPropsType = {
 function Star(props: StarPropsType) {
     console.log("Star rendering");
     return props.selected ?
-        <span onClick={() => {props.toggleRating(props.value)}}>
+        <span style={{cursor: "pointer"}} onClick={() => {props.toggleRating(props.value)}}>
             <b>star </b>
         </span>
         :
-        <span onClick={() => {props.toggleRating(props.value)}}>
+        <span style={{marginRight: 5, cursor: "pointer"}} onClick={() => {props.toggleRating(props.value)}}>
             star
         </span>
 }

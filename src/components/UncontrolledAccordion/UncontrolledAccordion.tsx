@@ -3,7 +3,7 @@ import React, { useState } from "react";
 type UncontrolledAccordionPropsType = {
     titleValue: string,
 }
-// Accordion и ACcordion2 одинаковы по результату!!!
+
 export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
 
     let [state, setState] = useState(false)
@@ -13,18 +13,18 @@ export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
     }
 
     return <div>
-        <AccordionTitle title={props.titleValue}/>
-        <button onClick={() => {toggle()}}>Toggle</button>
+        <AccordionTitle title={props.titleValue} toggle={toggle}/>
         { state && <AccordionBody/> }
     </div>
 }
 
 type UncontrolledAccordionTitlePropsType = {
     title: string
+    toggle: () => void
 }
 
 function AccordionTitle(props: UncontrolledAccordionTitlePropsType) {
-    return <h3>{props.title}</h3>;
+    return <h3 style={{cursor: "pointer"}} onClick={() => {props.toggle()}}>{props.title}</h3>;
 }
 
 function AccordionBody() {
