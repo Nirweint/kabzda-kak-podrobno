@@ -35,12 +35,9 @@ type StarPropsType = {
 function Star(props: StarPropsType) {
     const onClickToggleRatingHandler = () => props.toggleRating(props.value)
 
-    return props.selected ?
-        <span style={{cursor: "pointer"}} onClick={onClickToggleRatingHandler}>
-            <b>star </b>
-        </span>
-        :
-        <span style={{marginRight: 5, cursor: "pointer"}} onClick={onClickToggleRatingHandler}>
-            star
-        </span>
+    return <span
+        style={{marginRight: 4, cursor: "pointer"}}
+        onClick={onClickToggleRatingHandler}
+    >{props.selected ? <b>star </b> : "star"}</span>
+
 }
