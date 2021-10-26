@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 type UncontrolledAccordionPropsType = {
     titleValue: string,
@@ -14,7 +14,7 @@ export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
 
     return <div>
         <AccordionTitle title={props.titleValue} toggle={toggle}/>
-        { state && <AccordionBody/> }
+        {state && <AccordionBody/>}
     </div>
 }
 
@@ -24,7 +24,12 @@ type UncontrolledAccordionTitlePropsType = {
 }
 
 function AccordionTitle(props: UncontrolledAccordionTitlePropsType) {
-    return <h3 style={{cursor: "pointer"}} onClick={() => {props.toggle()}}>{props.title}</h3>;
+    const onClickToggleHandler = () => props.toggle()
+
+    return <h3 style={{cursor: "pointer"}}
+               onClick={onClickToggleHandler}>
+        {props.title}
+    </h3>;
 }
 
 function AccordionBody() {
