@@ -8,7 +8,7 @@ type ValueRatingType = 0 | 1 | 2 | 3 | 4 | 5;
 
 export function UncontrolledRating(props: UncontrolledRatingPropsType) {
 
-    let [value, setValue] = useState(0)
+    const [value, setValue] = useState(0)
 
     const toggleRating = (value: ValueRatingType) => {
         setValue(value)
@@ -21,7 +21,6 @@ export function UncontrolledRating(props: UncontrolledRatingPropsType) {
             <Star selected={value > 2} toggleRating={toggleRating} value={3}/>
             <Star selected={value > 3} toggleRating={toggleRating} value={4}/>
             <Star selected={value > 4} toggleRating={toggleRating} value={5}/>
-
         </div>
     )
 
@@ -34,13 +33,14 @@ type StarPropsType = {
 }
 
 function Star(props: StarPropsType) {
-    console.log("Star rendering");
+    const onClickToggleRatingHandler = () => props.toggleRating(props.value)
+
     return props.selected ?
-        <span style={{cursor: "pointer"}} onClick={() => {props.toggleRating(props.value)}}>
+        <span style={{cursor: "pointer"}} onClick={onClickToggleRatingHandler}>
             <b>star </b>
         </span>
         :
-        <span style={{marginRight: 5, cursor: "pointer"}} onClick={() => {props.toggleRating(props.value)}}>
+        <span style={{marginRight: 5, cursor: "pointer"}} onClick={onClickToggleRatingHandler}>
             star
         </span>
 }
