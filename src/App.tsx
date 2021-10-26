@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
-import {OnOff} from "./components/onOff/OnOff";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import {UncontrolledAccordion} from './components/UncontrolledAccordion/UncontrolledAccordion';
 import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
+import {OnOff} from "./components/OnOff/OnOff";
 
 // function declaration
 function App() {
@@ -12,6 +13,7 @@ function App() {
 
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+    const [onOfValue, setOnOfValue] = useState<boolean>(false)
 
     // return JSX!!!
     return (
@@ -32,9 +34,10 @@ function App() {
                 value={accordionCollapsed}
             />
 
-            {/*<OnOff/>*/}
-            {/*<OnOff/>*/}
-            {/*<OnOff/>*/}
+            <UncontrolledOnOff/>
+
+            <OnOff value={onOfValue} onClick={setOnOfValue}/>
+            <OnOff value={onOfValue} onClick={setOnOfValue}/>
 
             {/*<UncontrolledAccordion titleValue={"Menu"}/>*/}
             {/*<UncontrolledAccordion titleValue={"Users"}/>*/}

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-type OnOffPropsType = {
+type UncontrolledOnOffPropsType = {
     // on: boolean
 }
 
-export function OnOff(props: OnOffPropsType) {
+export function UncontrolledOnOff(props: UncontrolledOnOffPropsType) {
 
     let [on, setOn] = useState(false)
 
