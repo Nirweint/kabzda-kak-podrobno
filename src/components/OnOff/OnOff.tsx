@@ -36,12 +36,13 @@ export function OnOff(props: OnOffPropsType) {
         marginLeft: "5px",
         backgroundColor: props.value ? "green" : "red",
     }
-    const onClickIndicatorToggle = () => props.onClick(!props.value)
+    const onClickIndicatorToggleOn = () => props.onClick(true)
+    const onClickIndicatorToggleOff = () => props.onClick(false)
 
     return (
         <div>
-            <div style={onStyle} onClick={onClickIndicatorToggle}>On</div>
-            <div style={offStyle} onClick={onClickIndicatorToggle}>Off</div>
+            <div style={onStyle} onClick={onClickIndicatorToggleOn}>On</div>
+            <div style={offStyle} onClick={onClickIndicatorToggleOff}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     );

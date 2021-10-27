@@ -23,24 +23,24 @@ function App() {
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <Accordion
                 titleValue={"Menu"}
-                onClick={setAccordionCollapsed}
-                value={accordionCollapsed}
+                onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
+                collapsed={accordionCollapsed}
             />
             Article 2
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <Accordion
                 titleValue={"Users"}
-                onClick={setAccordionCollapsed}
-                value={accordionCollapsed}
+                onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
+                collapsed={accordionCollapsed}
             />
 
-            <UncontrolledOnOff/>
+            <UncontrolledOnOff onChange={setOnOfValue}/> {onOfValue.toString()}
 
-            <OnOff value={onOfValue} onClick={setOnOfValue}/>
-            <OnOff value={onOfValue} onClick={setOnOfValue}/>
+            {/*<OnOff value={onOfValue} onClick={setOnOfValue}/>*/}
+            {/*<OnOff value={onOfValue} onClick={setOnOfValue}/>*/}
 
-            {/*<UncontrolledAccordion titleValue={"Menu"}/>*/}
-            {/*<UncontrolledAccordion titleValue={"Users"}/>*/}
+            <UncontrolledAccordion titleValue={"Menu"}/>
+            <UncontrolledAccordion titleValue={"Users"}/>
 
             {/*<UncontrolledRating/>*/}
             {/*<UncontrolledRating/>*/}
@@ -57,6 +57,5 @@ function PageTitle(props: PageTitlePropsType) {
     console.log("AppTitle rendering");
     return <h1>{props.title}</h1>;
 }
-
 
 export default App;
