@@ -18,29 +18,29 @@ function App() {
     // return JSX!!!
     return (
         <div className={"app"}>
-            <PageTitle title={"This is APP component"}/>
+            {/*<PageTitle title={"This is APP component"}/>*/}
             Article 1
             <Rating value={ratingValue} onClick={setRatingValue}/>
-            <Accordion
-                titleValue={"Menu"}
-                onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
-                collapsed={accordionCollapsed}
-            />
-            Article 2
-            <Rating value={ratingValue} onClick={setRatingValue}/>
-            <Accordion
-                titleValue={"Users"}
-                onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
-                collapsed={accordionCollapsed}
-            />
+            {/*<Accordion*/}
+            {/*    titleValue={"Menu"}*/}
+            {/*    onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}*/}
+            {/*    collapsed={accordionCollapsed}*/}
+            {/*/>*/}
+            {/*Article 2*/}
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
+            {/*<Accordion*/}
+            {/*    titleValue={"Users"}*/}
+            {/*    onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}*/}
+            {/*    collapsed={accordionCollapsed}*/}
+            {/*/>*/}
 
-            <UncontrolledOnOff onChange={setOnOfValue}/> {onOfValue.toString()}
+            {/*<UncontrolledOnOff onChange={setOnOfValue}/> {onOfValue.toString()}*/}
 
+            <OnOff value={onOfValue} onClick={setOnOfValue}/>
             {/*<OnOff value={onOfValue} onClick={setOnOfValue}/>*/}
-            {/*<OnOff value={onOfValue} onClick={setOnOfValue}/>*/}
 
-            <UncontrolledAccordion titleValue={"Menu"}/>
-            <UncontrolledAccordion titleValue={"Users"}/>
+            {/*<UncontrolledAccordion titleValue={"Menu"}/>*/}
+            {/*<UncontrolledAccordion titleValue={"Users"}/>*/}
 
             {/*<UncontrolledRating/>*/}
             {/*<UncontrolledRating/>*/}
