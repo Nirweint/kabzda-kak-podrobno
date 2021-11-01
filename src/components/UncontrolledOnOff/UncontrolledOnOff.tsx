@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-type UncontrolledOnOffPropsType = {
+export type UncontrolledOnOffPropsType = {
     onChange: (on: boolean) => void
 
 }

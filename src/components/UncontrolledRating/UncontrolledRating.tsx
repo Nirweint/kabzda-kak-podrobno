@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 
-type UncontrolledRatingPropsType = {
+export type UncontrolledRatingPropsType = {
     // value: 0 | 1 | 2 | 3 | 4 | 5
 }
 
-type ValueRatingType = 0 | 1 | 2 | 3 | 4 | 5;
+export type ValueRatingType = 0 | 1 | 2 | 3 | 4 | 5;
 
 export function UncontrolledRating(props: UncontrolledRatingPropsType) {
 
