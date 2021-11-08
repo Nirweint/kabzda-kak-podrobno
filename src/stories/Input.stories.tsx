@@ -35,7 +35,7 @@ export const GetValueOfUncontrolledInputByButtonPress = () => {
         - actual value: {value}
     </>)
 }
-export const ControlledInputWithFixedValue = () => <input value={'i dont like storyboo'}/>
+export const ControlledInputWithFixedValue = () => <input value={'i dont like storybook'}/>
 
 export const ControlledInput = () => {
     const [parentValue, setParentValue] = useState("")
