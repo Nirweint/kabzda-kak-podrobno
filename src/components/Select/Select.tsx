@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Select.module.css';
 
 type ItemType = {
@@ -15,17 +15,26 @@ export type SelectPropsType = {
 
 export const Select = (props: SelectPropsType) => {
 
+    const [pickedItem, setPickedItem] = useState('')
 
-    const mappedItems = props.items.map(i => {
+    const onClickHandler = (title: string) => {
+        setPickedItem(title)
+    }
+
+    const mappedItems = <div className={s.items}>
+        {props.items.map(i => {
             return (
-                <div key={i.value}>{i.title}</div>
+                <div className={s.item} key={i.value} onClick={() => {onClickHandler(i.title)}}>{i.title}</div>
             )
-        })
+        })}
+    </div>
+
+    const selectFinalStyle = `${s.select} ${props.selectCollapsed ? s.collapsed : ''}`;
 
 
     return (
-        <div>
-            <div onClick={props.onClick}>{props.value}</div>
+        <div className={s.selectWrapper}>
+            <div className={selectFinalStyle} onClick={props.onClick}>{pickedItem ? pickedItem : "Users"}</div>
             {props.selectCollapsed && mappedItems}
         </div>
 

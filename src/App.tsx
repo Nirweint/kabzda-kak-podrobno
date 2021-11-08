@@ -41,11 +41,11 @@ function App() {
 
             <OnOff value={onOfValue} onClick={setOnOfValue}/>
 
-            <Select value={'Users'}
-                    onChange={() => {setSelectCollapsed(!selectCollapsed)}}
-                    items={[{value: "1", title: "Alex"},{value: "2", title: "Sofi"},{value: "3", title: "Pasha"},{value: "4", title: "Oleg"},]}
-                    selectCollapsed={selectCollapsed}
-            />
+            {/*<Select value={'Users'}*/}
+            {/*        onChange={() => {setSelectCollapsed(!selectCollapsed)}}*/}
+            {/*        items={[{value: "1", title: "Alex"},{value: "2", title: "Sofi"},{value: "3", title: "Pasha"},{value: "4", title: "Oleg"},]}*/}
+            {/*        selectCollapsed={selectCollapsed}*/}
+            {/*/>*/}
             {/*<OnOff value={onOfValue} onClick={setOnOfValue}/>*/}
 
             {/*<UncontrolledAccordion titleValue={"Menu"}/>*/}
