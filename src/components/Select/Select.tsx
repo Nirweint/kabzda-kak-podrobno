@@ -19,6 +19,8 @@ export const Select = (props: SelectPropsType) => {
 
     const onClickHandler = (title: string) => {
         setPickedItem(title)
+        props.onClick()
+
     }
 
     const mappedItems = <div className={s.items}>
