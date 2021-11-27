@@ -27,7 +27,6 @@ type AccordionTitlePropsType = {
 }
 
 const AccordionTitle = React.memo(function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log("Title rendered")
     return <h3 onClick={props.onChange}>{props.title}</h3>;
 })
 
@@ -37,7 +36,6 @@ export type AccordionBodyPropsType = {
 }
 
 const AccordionBody = React.memo( function AccordionBody(props: AccordionBodyPropsType) {
-    console.log("Body rendered")
 
     const onClickHandler = (value: string) => {
         props.onClickCallBack(value)

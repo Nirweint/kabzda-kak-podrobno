@@ -13,7 +13,7 @@ export type SelectPropsType = {
     selectCollapsed: boolean
 }
 
-export const Select = (props: SelectPropsType) => {
+export const Select = React.memo( (props: SelectPropsType) => {
 
     const [pickedItem, setPickedItem] = useState('')
 
@@ -41,4 +41,4 @@ export const Select = (props: SelectPropsType) => {
         </div>
 
     );
-}
+})
