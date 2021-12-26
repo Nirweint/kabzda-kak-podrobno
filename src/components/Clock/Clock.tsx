@@ -2,7 +2,9 @@ import React, {useEffect, useState} from "react";
 import s from './Clock.module.css'
 
 
-type PropsType = {}
+type PropsType = {
+    mode?: 'analog' | "digital"
+}
 
 export const Clock: React.FC<PropsType> = (props) => {
     const [date, setDate] = useState(new Date())
@@ -24,20 +26,42 @@ export const Clock: React.FC<PropsType> = (props) => {
     const hour = date.getHours();
     const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
 
+    let view;
+
+    switch (props.mode) {
+        case "analog":
+            view = (
+                <div className={s.clock}>
+                    <div className={s.outerClockFace}>
+                        <div className={`${s.marking} ${s.markingOne}`}></div>
+                        <div className={`${s.marking} ${s.markingTwo}`}></div>
+                        <div className={`${s.marking} ${s.markingThree}`}></div>
+                        <div className={`${s.marking} ${s.markingFour}`}></div>
+                    </div>
+                    <div className={s.innerClockFace}>
+                        <div className={`${s.hand} ${s.hourHand}`} style={{transform: `rotate(${hourDegrees}deg)`}}></div>
+                        <div className={`${s.hand} ${s.minHand}`} style={{transform: `rotate(${minsDegrees}deg)`}}></div>
+                        <div className={`${s.hand} ${s.secondHand}`} style={{transform: `rotate(${secondsDegrees}deg)`}}></div>
+                    </div>
+                </div>
+            )
+            break;
+        case "digital":
+        default:
+            view = (
+                <div className={s.digital}>
+                    {date.toLocaleTimeString()}
+                </div>
+            )
+    }
+
 
     return (
-        <div className={s.clock}>
-            <div className={s.outerClockFace}>
-                <div className={`${s.marking} ${s.markingOne}`}></div>
-                <div className={`${s.marking} ${s.markingTwo}`}></div>
-                <div className={`${s.marking} ${s.markingThree}`}></div>
-                <div className={`${s.marking} ${s.markingFour}`}></div>
-            </div>
-            <div className={s.innerClockFace}>
-                <div className={`${s.hand} ${s.hourHand}`} style={{transform: `rotate(${hourDegrees}deg)`}}></div>
-                <div className={`${s.hand} ${s.minHand}`} style={{transform: `rotate(${minsDegrees}deg)`}}></div>
-                <div className={`${s.hand} ${s.secondHand}`} style={{transform: `rotate(${secondsDegrees}deg)`}}></div>
+        <div className={s.clockMainBlock}>
+            <div className={s.clockBlock}>
+                {view}
             </div>
         </div>
+
     )
 }
