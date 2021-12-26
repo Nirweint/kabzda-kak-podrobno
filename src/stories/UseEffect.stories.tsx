@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, KeyboardEvent} from 'react';
 
 export default {
     title: "useEffect demo",
@@ -28,8 +28,8 @@ export const CounterUseEffect = () => {
 
     return (
         <div>
-            <button onClick={() => setCounter(counter + 1)} >+</button>
-           Hello,  {counter}
+            <button onClick={() => setCounter(counter + 1)}>+</button>
+            Hello, {counter}
         </div>
     )
 }
@@ -50,12 +50,11 @@ export const SetTimeOutUseEffect = () => {
     }, [counter])
 
 
-
     return (
         <div>
-            <button onClick={() => setCounter(counter + 1)} >+ counter</button>
-            <button onClick={() => setFake(fake + 1)} >+ fake</button>
-            Hello,  {counter}
+            <button onClick={() => setCounter(counter + 1)}>+ counter</button>
+            <button onClick={() => setFake(fake + 1)}>+ fake</button>
+            Hello, {counter}
             Fake, {fake}
         </div>
     )
@@ -69,10 +68,12 @@ export const SetIntervalUseEffect = () => {
     useEffect(() => {
         console.log("useEffect every render!!!")
 
-        setInterval(() => {
+        let i = setInterval(() => {
             console.log("time")
             setDate(new Date())
         }, 1000)
+
+        return () => clearInterval(i)
 
     }, [])
 
@@ -81,6 +82,54 @@ export const SetIntervalUseEffect = () => {
     return (
         <div>
             {time}
+        </div>
+    )
+}
+
+export const ResetUseEffectExample = () => {
+    console.log('ResetUseEffect')
+    const [counter, setCounter] = useState(0)
+
+    useEffect(() => {
+        console.log("useEffect occurred")
+
+        return () => console.log("RESET DIE")
+    }, [counter])
+
+
+    return (
+        <div>
+            <button onClick={() => setCounter(counter + 1)}>+ counter</button>
+            Hello, {counter}
+        </div>
+    )
+}
+
+export const KeyTrackerExample = () => {
+    const [text, setText] = useState('')
+
+    console.log('KeyTrackerExample rendered with: ', text)
+
+    useEffect(() => {
+
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText((state) => state + e.key)
+        }
+
+        // @ts-ignore
+        window.addEventListener("keypress", handler)
+        return () => {
+            // @ts-ignore
+            window.removeEventListener("keypress", handler)
+        }
+
+    }, [])
+
+
+    return (
+        <div>
+            Typed text: {text}
         </div>
     )
 }
